@@ -1,0 +1,14 @@
+#Script taken from https://www.biostars.org/p/181614/ and modified
+
+awk 'FNR==NR{
+  a[">"$1]=$2;next
+}
+$1 in a{
+  sub(/>[0-9]+/,">"a[$1])
+}1' taxIDgyrb_modV2.txt final_gyrB_sequences.fasta > test.fa
+
+
+
+awk 'FNR==NR{ 
+
+a creates an array
